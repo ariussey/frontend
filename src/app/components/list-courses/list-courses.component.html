@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex justify-content-between my-4">
+        <h4>Lista de Reuniones</h4>
+        <button type="button" class="btn btn-outline-primary" routerLink="/add">Agregar</button>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id Horario</th>
+            <th scope="col">Enlace</th>
+            <th scope="col">Id Zoom</th>
+            <th scope="col">Clave</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listCourses">
+            <td scope="row">{{ item.id_horario }}</td>
+            <td>{{ item.enlace_zoom }}</td>
+            <td>{{ item.id_zoom }}</td>
+            <td>{{ item.clave_zoom }}</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" routerLink="/edit/{{item.id}}">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm ms-2">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -1,0 +1,29 @@
+<div class="row mt-4">
+    <div class="col-lg-4 offset-lg-4">
+        <div class="card">
+            <div class="card-header text-center">
+              <b>Agregar Nuevo Curso</b>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addCourse()">
+                    <input formControlName="id_horario" type="text" class="form-control" placeholder="Ingrese id horario">
+                    <small class="text-danger p-2" *ngIf="form.get('id_horario')?.hasError('required') && form.get('id_horario')?.touched">El campo id horario es requerido</small>
+                    <input formControlName="enlace_zoom" type="text" class="form-control mt-4" placeholder="Ingrese enlace zoom">
+                    <small class="text-danger p-2" *ngIf="form.get('enlace_zoom')?.hasError('required') && form.get('enlace_zoom')?.touched">El campo enlace zoom es requerido</small>
+                    <input formControlName="id_zoom" type="text" class="form-control mt-4" placeholder="Ingrese id zoom">
+                    <small class="text-danger p-2" *ngIf="form.get('id_zoom')?.hasError('required') && form.get('id_zoom')?.touched">El campo id zoom es requerido</small>
+                    <input formControlName="clave_zoom" type="text" class="form-control mt-4" placeholder="Ingrese clave zoom" value="autonoma">
+                    <small class="text-danger p-2" *ngIf="form.get('clave_zoom')?.hasError('required') && form.get('clave_zoom')?.touched">El campo clave zoom es requerido</small>
+                    <div class="row mt-3">
+                        <div class="col-6 d-grid py-2">
+                            <button type="button" class="btn btn-secondary" routerLink="/">Cancelar</button>
+                        </div>
+                        <div class="col-6 d-grid py-2">
+                            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Agregar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
