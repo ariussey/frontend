@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { tick } from '@angular/core/testing';
+import { ToastrService } from 'ngx-toastr';
 import { Course } from 'src/app/interfaces/course';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-list-courses',
@@ -8,14 +11,32 @@ import { Course } from 'src/app/interfaces/course';
 })
 export class ListCoursesComponent implements OnInit {
 
-  listCourses: Course[] = [
-    { id: 1, id_horario: 1212, enlace_zoom: 'https://autonomadeica-edu-pe.zoom.us/j/88270234602?pwd=ajhsNTNTTGlTVEZCenBidjNFdlBjZz09', id_zoom: '882 7023 4602', clave_zoom: 'autonoma'},
-    { id: 2, id_horario: 1213, enlace_zoom: 'https://autonomadeica-edu-pe.zoom.us/j/88270234602?pwd=ajhsNTNTTGlTVEZCenBidjNFdlBjZz09', id_zoom: '882 7023 4602', clave_zoom: 'autonoma'}
-  ]
+  listCourses: Course[]=[]
+  loading: boolean = false;
 
-  constructor() { }
+  constructor(private _courseService: CourseService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.getListCourses();
   }
 
+  getListCourses(){
+    
+    this.loading = true;
+    this._courseService.getListCourses().subscribe((data: any) => {
+
+      this.listCourses = data.listCourses;
+      this.loading = false;
+      // console.log(data);
+    })
+  }
+
+  deleteCourse(id: number){
+      this.loading = true;
+      this._courseService.deleteCourse(id).subscribe(() => {
+      this.getListCourses();
+      this.toastr.warning('Curso eliminado','El curso se eliminó con exito');
+    })
+    // console.log(id);
+  }
 }
