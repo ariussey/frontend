@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+  }
+
+.mat-header-cell{
+  font-weight: 900;
+  font-size: 14px;
+  color: black;
+  }
+
+  th{
+    width: 20%;
+  }
+
+  .text-right{
+    text-align: right;
+  }

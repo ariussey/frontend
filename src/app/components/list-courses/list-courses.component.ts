@@ -4,6 +4,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Course } from 'src/app/interfaces/course';
 import { CourseService } from 'src/app/services/course.service';
 
+
+
+
+
 @Component({
   selector: 'app-list-courses',
   templateUrl: './list-courses.component.html',
@@ -11,7 +15,11 @@ import { CourseService } from 'src/app/services/course.service';
 })
 export class ListCoursesComponent implements OnInit {
 
+  displayedColumns: string[] = ['id_horario', 'enlace_zoom', 'id_zoom', 'clave_zoom', 'acciones'];
+  
+
   listCourses: Course[]=[]
+  dataSource = this.listCourses;
   loading: boolean = false;
 
   constructor(private _courseService: CourseService, private toastr: ToastrService) { }
@@ -26,6 +34,7 @@ export class ListCoursesComponent implements OnInit {
     this._courseService.getListCourses().subscribe((data: any) => {
 
       this.listCourses = data.listCourses;
+      this.dataSource = data.listCourses;
       this.loading = false;
       // console.log(data);
     })

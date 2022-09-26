@@ -16,6 +16,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component'
 import { ListCoursesComponent } from './components/list-courses/list-courses.component';
 import { AddEditCourseComponent } from './components/add-edit-course/add-edit-course.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
 
 @NgModule({
   declarations: [
@@ -37,6 +43,10 @@ import { AddEditCourseComponent } from './components/add-edit-course/add-edit-co
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }), // ToastrModule added
+    MatToolbarModule,
+    MatTableModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent] 
