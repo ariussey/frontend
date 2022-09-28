@@ -24,3 +24,12 @@ table {
   .mat-icon{
     cursor: pointer;
   }
+
+  button{
+    height: fit-content;
+  }
+
+  .mat-row:hover .mat-cell {
+    /* border-color: currentColor; */
+    background-color: rgba(0, 0, 0, 0.048);
+  }

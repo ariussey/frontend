@@ -1,7 +1,7 @@
 <app-progress-bar *ngIf="loading"></app-progress-bar>
 <div *ngIf="!loading" class="row mt-4">
     <div class="col-lg-4 offset-lg-4">
-        <div class="card">
+        <!-- <div class="card">
             <div class="card-header text-center">
               <b>{{operacion}} Nuevo Curso</b>
             </div>
@@ -25,6 +25,41 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
+        <hr>
+        <mat-card>
+            <mat-card-title class="text-center">Agregar curso</mat-card-title><hr>
+            <form [formGroup]="form" (ngSubmit)="addCourse()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Id Horario</mat-label>
+                    <input formControlName="id_horario" matInput placeholder="Ingrese id horario">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enlace</mat-label>
+                    <input formControlName="enlace_zoom" matInput placeholder="Ingrese el enlace">
+                </mat-form-field>
+        
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Id Zoom</mat-label>
+                    <input formControlName="id_zoom" matInput placeholder="Ingrese id zoom">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Clave Zoom</mat-label>
+                    <input formControlName="clave_zoom" matInput placeholder="Ingrese clave de zoom">
+                </mat-form-field>   
+            
+
+                <div class="row mt-3">
+                    <div class="col-6 d-grid py-2">
+                        <button mat-raised-button routerLink="/">Cancelar</button>
+                    </div>
+                    <div class="col-6 d-grid py-2">
+                        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">{{operacion_boton}}</button>
+                    </div>
+                </div>
+            </form>
+        </mat-card> 
     </div>
 </div>
