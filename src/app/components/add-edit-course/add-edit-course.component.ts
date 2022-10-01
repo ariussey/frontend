@@ -26,7 +26,7 @@ export class AddEditCourseComponent implements OnInit {
 
     this.form = this.fb.group(
       {
-        id_horario:  ['', Validators.required],
+        id_horario:  ['', [Validators.required, Validators.pattern('[0-9][0-9][0-9][0-9]'), Validators.maxLength(4)]],
         enlace_zoom: ['', Validators.required],
         id_zoom: ['', Validators.required],
         clave_zoom: ['', Validators.required]
@@ -73,19 +73,38 @@ export class AddEditCourseComponent implements OnInit {
     if(this.id !== 0 ){
       //Editar
       course.id = this.id;
-      this._courseService.updateCourse(this.id, course).subscribe(() => {
-        this.loading = false;
-        this.toastr.info('El curso fue actualizado correctamente', 'Curso actualizado')
-        this.router.navigate(['/'])
+      this._courseService.updateCourse(this.id, course).subscribe({
+        next: () => {
+          this.loading = false;
+          this.toastr.info('El curso fue actualizado correctamente', 'Curso actualizado')
+          this.router.navigate(['/'])
+        },
+        error: (e) => {
+          this.loading = false;
+          alert("ERROR: No fue posible conectarse al servidor")
+          console.log(e)
+        },
+        complete: () => console.info("complete")
       })
     } else {
       // Agregar
-      this._courseService.saveCourse(course).subscribe(() => {
-        this.loading = false;
-        this.toastr.success('El curso fue agregado correctamente', 'Curso agregado')
-        this.router.navigate(['/'])
-      // console.log('producto agregado');
-    })
+      this._courseService.saveCourse(course).subscribe({
+        next: () => {
+        
+            this.loading = false;
+            this.toastr.success('El curso fue agregado correctamente', 'Curso agregado')
+            this.router.navigate(['/'])
+          // console.log('producto agregado');
+        
+        },
+        error: (e) => {
+          this.loading = false
+          alert("ERROR: No fue posible conectarse al servidor")
+          console.log(e);
+        },
+        complete: () => console.info("complete")
+
+      })
     }
 
   }

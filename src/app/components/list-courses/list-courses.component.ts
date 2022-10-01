@@ -22,15 +22,22 @@ export class ListCoursesComponent implements OnInit, AfterViewInit {
   
   listCourses: Course[]=[]
   dataSource!: MatTableDataSource<any>;
-
+  
   loading: boolean = false;
 
   constructor(private _courseService: CourseService, private toastr: ToastrService) { }
   
-  ngOnInit(): void {
-    this.getListCourses();
+  ngAfterViewInit() {
+    setTimeout(() => {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+      if(this.dataSource.data.length>0){
+        this.paginator._intl.itemsPerPageLabel='Items por página';
+      }
+    }, 50);
+  }
+  ngOnInit(): void {
+    this.getListCourses();
   }
   
   applyFilter(event: Event) {
@@ -41,15 +48,29 @@ export class ListCoursesComponent implements OnInit, AfterViewInit {
   getListCourses(){
     
     this.loading = true;
-    this._courseService.getListCourses().subscribe((data: any) => {
-       
-      this.listCourses = data.listCourses;
+
+    this._courseService.getListCourses().subscribe({
+      next: (data: any) => {
+        this.listCourses = data.listCourses;
       this.dataSource = new MatTableDataSource(this.listCourses);
       
       this.loading = false;
-      
-      // console.log(data);
+      },
+      error: (e) => {
+        this.loading = false;
+        alert('ERROR: No fue posible conectarse al servidor')
+        console.error(e);
+      },
+      complete: () => console.info('complete')
     })
+    // this._courseService.getListCourses().subscribe((data: any) => {
+       
+    //   this.listCourses = data.listCourses;
+    //   this.dataSource = new MatTableDataSource(this.listCourses);
+      
+    //   this.loading = false;
+      
+    // })
   }
 
 
@@ -62,8 +83,4 @@ export class ListCoursesComponent implements OnInit, AfterViewInit {
     // console.log(id);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
 }

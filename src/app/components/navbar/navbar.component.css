@@ -5,4 +5,9 @@
 
 .example-spacer {
     flex: 1 1 auto;
-  }
+}
+
+/* mat-toolbar{
+    margin-top: 0;
+    position: fixed;
+} */
