@@ -1,0 +1,9 @@
+.bg-uai{
+    background-color: #001a54;
+    color: #fff;
+    font-size: medium;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}

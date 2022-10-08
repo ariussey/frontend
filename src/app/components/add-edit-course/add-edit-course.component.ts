@@ -26,7 +26,7 @@ export class AddEditCourseComponent implements OnInit {
 
     this.form = this.fb.group(
       {
-        id_horario:  ['', [Validators.required, Validators.pattern('[0-9][0-9][0-9][0-9]'), Validators.maxLength(4)]],
+        id_horario:  ['', [Validators.required, Validators.maxLength(6)]],
         enlace_zoom: ['', Validators.required],
         id_zoom: ['', Validators.required],
         clave_zoom: ['', Validators.required]

@@ -18,11 +18,10 @@ export class ListCoursesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['id_horario', 'enlace_zoom', 'id_zoom', 'clave_zoom', 'acciones'];
+  displayedColumns: string[] = ['id_horario', 'enlace_zoom', 'id_zoom', 'acciones'];
   
   listCourses: Course[]=[]
   dataSource!: MatTableDataSource<any>;
-  
   loading: boolean = false;
 
   constructor(private _courseService: CourseService, private toastr: ToastrService) { }
@@ -34,7 +33,7 @@ export class ListCoursesComponent implements OnInit, AfterViewInit {
       if(this.dataSource.data.length>0){
         this.paginator._intl.itemsPerPageLabel='Items por página';
       }
-    }, 50);
+    }, 500);
   }
   ngOnInit(): void {
     this.getListCourses();
