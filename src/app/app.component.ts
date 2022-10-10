@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
   showFiller = false;
-  typesOfShoes: string[] = ['Enlaces', 'Usuarios', 'Docentes'];
+  options: string[] = ['Reuniones', 'Usuarios', 'Docentes'];
 }
 

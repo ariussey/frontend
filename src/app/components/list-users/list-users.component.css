@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+  }
+
+.mat-header-cell{
+  font-weight: 900;
+  font-size: 14px;
+  color: black;
+  }
+
+  th{
+    width: 20%;
+  }
+
+  .text-right{
+    text-align: right;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-icon{
+    cursor: pointer;
+  }
+
+  button{
+    height: fit-content;
+  }
+
+  .mat-row:hover .mat-cell {
+    /* border-color: currentColor; */
+    background-color: rgba(0, 0, 0, 0.048);
+  }
+  table{
+    max-width: 100%;
+  }

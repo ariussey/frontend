@@ -77,7 +77,7 @@ export class AddEditCourseComponent implements OnInit {
         next: () => {
           this.loading = false;
           this.toastr.info('El curso fue actualizado correctamente', 'Curso actualizado')
-          this.router.navigate(['/'])
+          this.router.navigate(['/reuniones'])
         },
         error: (e) => {
           this.loading = false;
@@ -93,7 +93,7 @@ export class AddEditCourseComponent implements OnInit {
         
             this.loading = false;
             this.toastr.success('El curso fue agregado correctamente', 'Curso agregado')
-            this.router.navigate(['/'])
+            this.router.navigate(['/reuniones'])
           // console.log('producto agregado');
         
         },

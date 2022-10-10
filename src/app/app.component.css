@@ -1,10 +1,31 @@
 .example-sidenav {
     padding: 5px;
     width: 230px;
-    background-color: #242424;
+    background-color: #3a3a3a;
     color: #fff;
   }
+
+.mat-list-option:hover{
+    background-color: #0a0a0a8e;
+  }
+
+.mat-drawer{
+  margin: 64px 0;
+  position: fixed;
+}
+
 .w-100{
   width: 100%;
 }
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+@media (max-width: 599px){
   
+  .mat-drawer{
+    margin: 55px 0;
+    position: fixed;
+  }
+}

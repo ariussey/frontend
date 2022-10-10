@@ -32,6 +32,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.component';
+import { BtnAgregarComponent } from './components/btn-agregar/btn-agregar.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { MatListModule } from '@angular/material/list';
     AddEditCourseComponent,
     ProgressBarComponent,
     FooterComponent,
+    ListUsersComponent,
+    AddEditUserComponent,
+    BtnAgregarComponent,
   
   ],
   imports: [

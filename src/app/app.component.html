@@ -2,8 +2,8 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
         <mat-selection-list #shoes [multiple]="false">
-            <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" class="text-white">
-              {{shoe}}
+            <mat-list-option *ngFor="let option of options" [value]="option" class="text-white" >
+              <a href="/{{option.toLowerCase()}}">{{option}}</a>
             </mat-list-option>
           </mat-selection-list>
     </mat-drawer>
