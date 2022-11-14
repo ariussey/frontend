@@ -1,7 +1,7 @@
 .bg-uai{
-    background-color: #001a54;
-    color: #fff;
-    font-size: medium;
+    background-color: #dddddd;
+    color: rgb(0, 0, 0);
+    font-size: small;
 }
 
 .example-spacer {
@@ -9,6 +9,7 @@
 }
 
 .footer{
-    position: absolute;
+    margin-top: 70px;
     bottom: 0;
+    position: -webkit-sticky;
 }

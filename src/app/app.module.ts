@@ -35,6 +35,14 @@ import { MatListModule } from '@angular/material/list';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.component';
 import { BtnAgregarComponent } from './components/btn-agregar/btn-agregar.component';
+import { FilterComponent } from './components/filter/filter.component';
+
+/* Curso */
+import { HeroesModule } from './components/Udemy/heroes/heroes.module';
+import { ContadorModule } from './components/Udemy/contador/contador.module';
+import { DbzModule } from './Udemy/dbz/dbz.module';
+import { ReporteModule } from './Udemy/reporte/reporte.module';
+
 
 
 @NgModule({
@@ -48,7 +56,8 @@ import { BtnAgregarComponent } from './components/btn-agregar/btn-agregar.compon
     ListUsersComponent,
     AddEditUserComponent,
     BtnAgregarComponent,
-  
+    FilterComponent,
+    /* Curso */
   ],
   imports: [
     BrowserModule,
@@ -75,7 +84,12 @@ import { BtnAgregarComponent } from './components/btn-agregar/btn-agregar.compon
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    /* Curso */
+    HeroesModule,
+    ContadorModule,
+    DbzModule,
+    ReporteModule
   ],
   providers: [],
   bootstrap: [AppComponent] 

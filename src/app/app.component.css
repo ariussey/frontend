@@ -8,24 +8,33 @@
 .mat-list-option:hover{
     background-color: #0a0a0a8e;
   }
+.mat-list-option{
+  /* height: 0!important; */
+}
+
+
+
 
 .mat-drawer{
-  margin: 64px 0;
-  position: fixed;
+  display: block;
+  /* margin-top: 64px;
+  position: fixed; */
 }
 
 .w-100{
   width: 100%;
 }
 
-a{
+.mat-list-option a{
   text-decoration: none;
   color: #fff;
+  padding: 20px;
 }
 @media (max-width: 599px){
   
   .mat-drawer{
-    margin: 55px 0;
-    position: fixed;
+    display: block;
+    /* margin: 55px 0;
+    position: fixed; */
   }
 }

@@ -1,6 +1,6 @@
-<app-navbar></app-navbar>
-<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
+<!-- <app-navbar></app-navbar>
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="false">
+    <mat-drawer #drawer class="example-sidenav" opened="true" mode="side">
         <mat-selection-list #shoes [multiple]="false">
             <mat-list-option *ngFor="let option of options" [value]="option" class="text-white" >
               <a href="/{{option.toLowerCase()}}">{{option}}</a>
@@ -10,9 +10,12 @@
     <div class="example-sidenav-content">
       <button type="button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
-      </button>
+      </button> -->
       <!-- <p>{{shoes.selectedOptions.selected[0]?.value}}</p> -->
-      <router-outlet></router-outlet>
+      <!-- <router-outlet></router-outlet>
     </div>
-</mat-drawer-container>
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</mat-drawer-container> -->
+<!-- <app-condador></app-condador> -->
+<!-- <app-listado></app-listado> -->
+<app-tutoria-page></app-tutoria-page>

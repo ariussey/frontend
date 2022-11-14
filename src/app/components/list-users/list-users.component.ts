@@ -24,7 +24,7 @@ const listUsers: User[]=[
 })
 export class ListUsersComponent implements OnInit {
 
-  displayedColumns: string[] = ['email', 'password'];
+  displayedColumns: string[] = ['email', 'password', 'acciones'];
   dataSource: MatTableDataSource<User>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -32,6 +32,7 @@ export class ListUsersComponent implements OnInit {
   // dataSource  = listUsers;
   constructor() {
     this.dataSource = new MatTableDataSource(listUsers);
+    
   }
 
   ngOnInit(): void {
@@ -51,4 +52,13 @@ export class ListUsersComponent implements OnInit {
     }
   }
 
+  deleteUser(id: User){
+
+  }
+
+  
+
 }
+
+
+
